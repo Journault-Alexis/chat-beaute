@@ -10,22 +10,15 @@ const Cat = mongoose.model('Cat', new mongoose.Schema({
   },
   score: {
     type: Number,
-    required: true,
-        min: 0
-  },
-  id: {
-    type: String,
-    required: true,
-    minlength: 0,
-    maxlength: 50
+        min: 0,
   }
 }));
+
 
 function validateCat(cat) {
   const schema = {
     image: Joi.string().min(5).max(100).required(),
-    score: Joi.number().min(0).required(),
-    id: Joi.string().min(O).max(100)
+    score: Joi.number().min(0)
   };
 
   return Joi.validate(cat, schema);
