@@ -9,7 +9,7 @@ import { CatService } from '../shared/service/cat.service';
 @Component({
   selector: 'app-vote',
   templateUrl: './vote.component.html',
-  styleUrls: ['./vote.component.sass']
+  styleUrls: ['./vote.component.scss']
 })
 export class VoteComponent implements OnInit {
 
