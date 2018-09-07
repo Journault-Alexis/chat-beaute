@@ -13,23 +13,24 @@ import { CatService } from '../shared/service/cat.service';
 })
 export class VoteComponent implements OnInit {
 
+  randomCats: Array<Cat>;
   randomCat: Cat;
 
   constructor(private _catService: CatService) {
   }
 
   ngOnInit() {
-    this.getRandomCat();
+    this.get2RandomCats();
   }
 
-  public getRandomCat() {
-    this._catService.getRandomCat().subscribe((data: Cat) => {
-      this.randomCat = data;
+  public get2RandomCats() {
+    this._catService.getRandomCats().subscribe((data: Cat[]) => {
+      this.randomCats = data;
     });
   }
   public vote() {
     this._catService.increaseScore(this.randomCat.ident).subscribe(() => {
-      this.getRandomCat();
+      this.get2RandomCats();
     });
   }
 }
