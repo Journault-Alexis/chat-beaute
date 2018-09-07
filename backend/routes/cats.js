@@ -1,17 +1,23 @@
 const {Cat, validate} = require('../models/cat'); 
-
 const mongoose = require('mongoose');
 const express = require('express');
 const router = express.Router();
 
-
-
 router.get('/all', 
     async function getAllCatsbyDescendingScore (req, res) {
-      const cats = await Cat.find().sort({score: -1});
+      const cats = await Cat
+      .find()
+      .sort({score: -1})   
       res.send(cats);
 })
 
+router.get('/random', 
+    async function getRandomCat (req, res) {
+      const numberOfCats = await Cat.find().countDocuments() 
+      const randomNumber = Math.floor(Math.random() * numberOfCats)
+      const randomCat = await Cat.find().limit(1).skip(randomNumber)
+      res.send(randomCat);
+})
 
 router.post('/', 
     async function fillTheDB (req, res) {
