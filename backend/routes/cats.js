@@ -27,7 +27,16 @@ router.post('/',
         score: req.body[i].score,
     });
     let cats = await cat.save();
-  }
+  }})
+
+  router.put('/', 
+      async function increaseScore (req, res)  {
+        const cat = await Cat.findById(req.query.id);
+          cat.score ++
+          const catWithScoreIncrement  = await cat.save();
+    if (!cat) return res.status(404).send('Oups, the cat with the given ID was not found.');
+    
+  });  
  
-});
+
 module.exports = router; 
