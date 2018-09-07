@@ -12,10 +12,10 @@ router.get('/all',
   })
 
 router.get('/random',
-  async function getRandomCat(req, res) {
+  async function get2RandomCat(req, res) {
     const numberOfCats = await Cat.find().countDocuments()
     const randomNumber = Math.floor(Math.random() * numberOfCats)
-    const randomCat = await Cat.find().limit(1).skip(randomNumber)
+    const randomCat = await Cat.find().limit(2).skip(randomNumber)
     res.send(randomCat);
   })
 
@@ -32,7 +32,7 @@ router.post('/',
 
 router.put('/',
   async function increaseScore(req, res) {
-    const cat = await Cat.findById(req.query.id);
+    const cat = await Cat.findById(req.params.id);
     cat.score++
     const catWithScoreIncrement = await cat.save();
     if (!cat) return res.status(404).send('Oups, the cat with the given ID was not found.');
