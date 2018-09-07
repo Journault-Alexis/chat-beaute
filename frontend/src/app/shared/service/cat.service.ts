@@ -16,7 +16,8 @@ export class CatService {
   public getRandomCats(): Observable<Array<Cat>> {
     return this.http.get<Cat[]>(this.actionUrl + 'random');
   }
-  public increaseScore(ident: string): Observable<string> {
-    return this.http.put<string>(this.actionUrl, { params: { ident: ident } });
+  public increaseScore(_id: string): Observable<string> {
+    console.log("avt le départ",_id);
+    return this.http.put<string>(this.actionUrl, { params: { _id: _id } });
   }
 }

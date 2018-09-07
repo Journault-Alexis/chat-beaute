@@ -2,5 +2,5 @@
 export class Cat {
     image: string;
     score: number;
-    ident: string;
+    _id: string;
   }

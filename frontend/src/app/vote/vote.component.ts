@@ -21,15 +21,19 @@ export class VoteComponent implements OnInit {
 
   ngOnInit() {
     this.get2RandomCats();
-  }
+     }
 
   public get2RandomCats() {
     this._catService.getRandomCats().subscribe((data: Cat[]) => {
       this.randomCats = data;
+      console.log(this.randomCats);
     });
   }
-  public vote() {
-    this._catService.increaseScore(this.randomCat.ident).subscribe(() => {
+  public vote(ident) {
+    console.log("yololo");
+    console.log(ident);
+    this._catService.increaseScore(ident).subscribe(() => {
+      console.log(ident);
       this.get2RandomCats();
     });
   }
