@@ -40,6 +40,7 @@ export class VoteComponent implements OnInit, OnDestroy {
     this._catDataService.increaseScore(ident).subscribe(() => {
     });
     this._catService.getCats();
+    this._catService.getScores();
   }
 
 }

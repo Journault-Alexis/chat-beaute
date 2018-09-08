@@ -13,7 +13,8 @@ export class CatService {
   private actionUrl: string;
   protected randomCats: BehaviorSubject<Array<Cat>> = new BehaviorSubject<Array<Cat>>([]);
   switchTimeForCats$ = this.randomCats.asObservable();
-
+  protected scoresCats: BehaviorSubject<Array<Cat>> = new BehaviorSubject<Array<Cat>>([]);
+  scoreChanging$ = this.scoresCats.asObservable();
 
   constructor(private catServiceData: CatDataService) {
 
@@ -28,6 +29,17 @@ export class CatService {
     return this.randomCats;
   }
 
+  private getReactiveScore(): Observable<Array<Cat>> {
+    this.catServiceData
+      .getDataforallCatsSortByScore()
+      .subscribe((list: Cat[]) => {
+        this.scoresCats.next(list);
+        console.log(list);
+      });
+    return this.scoresCats;
+  }
+
+
   public getRandomCats(): Observable<Array<Cat>> {
     return this.switchTimeForCats$;
   }
@@ -35,5 +47,14 @@ export class CatService {
   public getCats(): Observable<Array<Cat>> {
     return this.getReactiveRandomCats();
   }
+
+  public getScores(): Observable<Array<Cat>> {
+    return this.getReactiveScore();
+  }
+
+  public getScoresCats(): Observable<Array<Cat>> {
+    return this.scoreChanging$;
+  }
+
 
 }

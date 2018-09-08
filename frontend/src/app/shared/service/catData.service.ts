@@ -18,6 +18,10 @@ export class CatDataService {
         return this.http.get<Cat[]>(this.actionUrl + 'random');
     }
 
+    public getDataforallCatsSortByScore(): Observable<Array<Cat>> {
+        return this.http.get<Cat[]>(this.actionUrl + 'all');
+    }
+
     public increaseScore(_id: string): Observable<string> {
         return this.http.put<string>(this.actionUrl, { params: { _id: _id } });
     }
