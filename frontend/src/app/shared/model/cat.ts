@@ -1,6 +1,6 @@
 
 export class Cat {
-    image: string;
-    score: number;
-    _id: string;
-  }
+  image: string;
+  score: number;
+  _id: string;
+}

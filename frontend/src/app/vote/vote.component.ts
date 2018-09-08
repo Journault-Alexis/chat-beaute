@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs/Subscription';
 import { Cat } from '../shared/model/cat';
 
 import { CatService } from '../shared/service/cat.service';
+import { CatDataService } from '../shared/service/catData.service';
 // import {Router} from '@angular/router';
 
 
@@ -11,30 +12,34 @@ import { CatService } from '../shared/service/cat.service';
   templateUrl: './vote.component.html',
   styleUrls: ['./vote.component.scss']
 })
-export class VoteComponent implements OnInit {
-
+export class VoteComponent implements OnInit, OnDestroy {
+  catsSubscribe: Subscription;
   randomCats: Array<Cat>;
   randomCat: Cat;
 
-  constructor(private _catService: CatService) {
+  constructor(private _catService: CatService, private _catDataService: CatDataService) {
   }
 
   ngOnInit() {
-    this.get2RandomCats();
-     }
+    this.subscribeto2RandomCats();
+    this._catService.getCats();
+  }
 
-  public get2RandomCats() {
-    this._catService.getRandomCats().subscribe((data: Cat[]) => {
+  ngOnDestroy() {
+    this.catsSubscribe.unsubscribe();
+    this.randomCats = null;
+  }
+
+  public subscribeto2RandomCats() {
+    this.catsSubscribe = this._catService.getRandomCats().subscribe((data: Cat[]) => {
       this.randomCats = data;
-      console.log(this.randomCats);
     });
   }
+
   public vote(ident) {
-    console.log("yololo");
-    console.log(ident);
-    this._catService.increaseScore(ident).subscribe(() => {
-      console.log(ident);
-      this.get2RandomCats();
+    this._catDataService.increaseScore(ident).subscribe(() => {
     });
+    this._catService.getCats();
   }
+
 }
