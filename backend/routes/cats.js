@@ -12,15 +12,22 @@ router.get('/all',
   })
 
 router.get('/random',
-  async function get2RandomCat(req, res) {
+  async function get2RandomCats(req, res) {
     const numberOfCats = await Cat.find().countDocuments()
     const randomNumber = Math.floor(Math.random() * numberOfCats)
     const randomCat = await Cat.find().limit(2).skip(randomNumber)
+
+    if (!randomCat) return res.status(404).send('The randomCats with the given ID were not found.');
+
     res.send(randomCat);
   })
 
 router.post('/',
   async function fillTheDB(req, res) {
+
+    const { error } = validate(req.body); 
+    if (error) return res.status(400).send(error.details[0].message);
+
     for (var i = 0; i < req.body.length; i++) {
       let cat = new Cat({
         image: req.body[i].image,
@@ -32,9 +39,14 @@ router.post('/',
 
 router.put('/',
   async function increaseScore(req, res) {
+
+    const { error } = validate(req.body); 
+    if (error) return res.status(400).send(error.details[0].message);
+
     const cat = await Cat.findById(req.body.params._id);
     cat.score++
     const catWithScoreIncrement = await cat.save();
+    
     if (!cat) return res.status(404).send('Oups, the cat with the given ID was not found.');
 
   });
