@@ -32,9 +32,7 @@ router.post('/',
 
 router.put('/',
   async function increaseScore(req, res) {
-    console.log("arrivé de l'id", req.body.params._id);
     const cat = await Cat.findById(req.body.params._id);
-    console.log("le chat du back", cat);
     cat.score++
     const catWithScoreIncrement = await cat.save();
     if (!cat) return res.status(404).send('Oups, the cat with the given ID was not found.');
@@ -43,3 +41,5 @@ router.put('/',
 
 
 module.exports = router; 
+
+
