@@ -39,14 +39,13 @@ router.post('/',
 
 router.put('/',
   async function increaseScore(req, res) {
-
-    const { error } = validate(req.body); 
-    if (error) return res.status(400).send(error.details[0].message);
-
-    const cat = await Cat.findById(req.body.params._id);
-    cat.score++
-    const catWithScoreIncrement = await cat.save();
-    
+    console.log(req.query._id);
+    // const { error } = validate(req.body); 
+    // if (error) return res.status(400).send(error.details[0].message);
+    const cat = await Cat.updateOne({ _id: req.query._id}, {
+      $inc:  { score: 1 } }
+    );
+    res.send(cat);
     if (!cat) return res.status(404).send('Oups, the cat with the given ID was not found.');
 
   });
