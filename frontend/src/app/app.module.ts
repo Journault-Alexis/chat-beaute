@@ -13,12 +13,13 @@ import { CatService } from './shared/service/cat.service';
 import { CatDataService } from './shared/service/catData.service';
 
 import { Configuration } from '../app.constant';
+
 @NgModule({
   declarations: [
     AppComponent,
     IntroComponent,
     ScoreComponent,
-    VoteComponent
+    VoteComponent,
   ],
   imports: [
     BrowserModule,

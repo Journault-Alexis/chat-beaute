@@ -1,9 +1,11 @@
-<aside *ngFor="let cat of cats">
-  <p>yoyoy</p>
-  <div id="cat">
-    <div class="fill">
-      <img src="{{ cat?.image }}" class="cat-picture">
-    </div>
-    <h2> {{ cat?.score }} </h2>
-  </div>
+<aside id="wrapper">
+  <ul>
+    <h1>Live Score</h1>
+    <li id="cat" *ngFor="let cat of cats">
+      <div class="fill">
+        <img src="{{ cat?.image }}" class="cat-picture">
+      </div>
+      <h2> {{ cat?.score }} </h2>
+    </li>
+  </ul>
 </aside>

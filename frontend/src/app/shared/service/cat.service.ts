@@ -34,7 +34,6 @@ export class CatService {
       .getDataforallCatsSortByScore()
       .subscribe((list: Cat[]) => {
         this.scoresCats.next(list);
-        console.log(list);
       });
     return this.scoresCats;
   }
@@ -45,6 +44,7 @@ export class CatService {
   }
 
   public getCats(): Observable<Array<Cat>> {
+    console.log(this.switchTimeForCats$);
     return this.getReactiveRandomCats();
   }
 

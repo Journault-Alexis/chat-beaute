@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "./assets/style_files/normalize.css";
+
+body {
+
+    background-color:pink; 
+    font-family: 'Pacifico';
+    user-select: none;
+}
+
+app-root {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: center;
+}

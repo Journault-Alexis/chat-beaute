@@ -37,10 +37,12 @@ export class VoteComponent implements OnInit, OnDestroy {
   }
 
   public vote(ident) {
+    console.log("1");
     this._catDataService.increaseScore(ident).subscribe(() => {
     });
-    this._catService.getCats();
-    this._catService.getScores();
+    console.log("3");
+      this._catService.getCats();
+      console.log("7");
   }
 
 }
