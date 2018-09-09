@@ -30,6 +30,7 @@ export class CatService {
   }
 
   private getReactiveScore(): Observable<Array<Cat>> {
+    console.log("yoyo");
     this.catServiceData
       .getDataforallCatsSortByScore()
       .subscribe((list: Cat[]) => {
@@ -44,11 +45,11 @@ export class CatService {
   }
 
   public getCats(): Observable<Array<Cat>> {
-    console.log(this.switchTimeForCats$);
     return this.getReactiveRandomCats();
   }
 
   public getScores(): Observable<Array<Cat>> {
+    console.log("yo");
     return this.getReactiveScore();
   }
 

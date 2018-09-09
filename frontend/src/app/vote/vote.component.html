@@ -1,9 +1,7 @@
-<section id="wrapper"> 
-  <h1>It's time to vote for the cutest cats!</h1>
-    <div *ngFor="let cat of randomCats " id="cat">
-      <div class="fill">
-        <img src="{{ cat?.image }}" (click)="vote(cat._id)" class="cat-picture">
-      </div>
+<section id="wrapper">
+  <div *ngFor="let cat of randomCats " id="cat">
+    <div class="fill">
+      <img src="{{ cat?.image }}" (click)="vote(cat._id)" class="cat-picture">
     </div>
- 
+  </div>
 </section>

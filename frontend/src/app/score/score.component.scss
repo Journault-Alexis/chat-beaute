@@ -4,12 +4,14 @@
     flex-wrap: wrap;
     align-items: flex-end;
     justify-content: center;
+    background-color: whitesmoke;
+    border: 4px solid pink;
 }
 
 #cat {
     position: relative;
     background-color: whitesmoke;
-    border: 1px solid #E0E0E0;
+    border: 1px solid pink;
     border-radius: 50%;
     width: 65px;
     height:65px;
@@ -23,12 +25,12 @@
    
     }
 ul {
-    height: 600px;
+    height: 400px;
     width: 300px;
     overflow-y: scroll;
     border-radius: 8px;
     background-color: whitesmoke;
-    padding: 10px;
+    padding: 5px;
     list-style-type: none
 }    
 
@@ -62,4 +64,10 @@ h2 {
     height: 100%;
     min-width: 100%;
     max-height: 100%;
-  }   
+  }
+  
+  i{
+    position: relative;
+    top: -103px;
+    left: 184px;
+  }

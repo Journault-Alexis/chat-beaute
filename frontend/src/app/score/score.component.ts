@@ -22,8 +22,8 @@ export class ScoreComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.subscribetoScoresCats();
+    // setInterval(, 1500);
     this._catService.getScores();
-
   }
 
   ngOnDestroy() {

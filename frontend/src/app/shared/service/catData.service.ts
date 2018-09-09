@@ -23,10 +23,9 @@ export class CatDataService {
     }
 
     public increaseScore(_id: string): Observable<string> {
-        console.log(_id);
         const id = '?_id=';
         const query = id + _id;
-   //TO DO : don't use this little tricky null for faking argument
+   // TO DO : don't use this little tricky null for faking argument
         return this.http.put<string>(this.actionUrl + query, null);
     }
 }
