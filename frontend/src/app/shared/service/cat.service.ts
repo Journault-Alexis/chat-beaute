@@ -30,7 +30,6 @@ export class CatService {
   }
 
   private getReactiveScore(): Observable<Array<Cat>> {
-    console.log("yoyo");
     this.catServiceData
       .getDataforallCatsSortByScore()
       .subscribe((list: Cat[]) => {
@@ -49,7 +48,6 @@ export class CatService {
   }
 
   public getScores(): Observable<Array<Cat>> {
-    console.log("yo");
     return this.getReactiveScore();
   }
 

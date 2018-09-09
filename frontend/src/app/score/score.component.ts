@@ -1,9 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Testability } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { Cat } from '../shared/model/cat';
 
 import { CatService } from '../shared/service/cat.service';
-import { CatDataService } from '../shared/service/catData.service';
+
 // import {Router} from '@angular/router';
 
 @Component({
@@ -16,25 +16,26 @@ export class ScoreComponent implements OnInit, OnDestroy {
   cats: Array<Cat>;
   cat: Cat;
 
-  constructor(private _catService: CatService, private _catDataService: CatDataService) {
-
+  constructor(private _catService: CatService) {
+    this.catsScoresSubscribe = this._catService.getScoresCats().subscribe(cats => {
+      this.cats = cats;
+      });
   }
 
   ngOnInit() {
-    this.subscribetoScoresCats();
-    // setInterval(, 1500);
+
     this._catService.getScores();
+
   }
 
   ngOnDestroy() {
     this.catsScoresSubscribe.unsubscribe();
     this.cats = null;
   }
-
-  public subscribetoScoresCats() {
-    this.catsScoresSubscribe = this._catService.getScoresCats().subscribe((data: Cat[]) => {
-      this.cats = data;
-    });
-
+  getScore() {
+  this.catsScoresSubscribe = this._catService.getScoresCats().subscribe(cats => {
+    this.cats = cats; });
   }
 }
+
+

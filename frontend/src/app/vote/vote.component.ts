@@ -22,6 +22,7 @@ export class VoteComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.subscribeto2RandomCats();
+    console.log(this.catsSubscribe);
     this._catService.getCats();
   }
 
@@ -30,7 +31,7 @@ export class VoteComponent implements OnInit, OnDestroy {
     this.randomCats = null;
   }
 
-  public subscribeto2RandomCats() {
+  private subscribeto2RandomCats() {
     this.catsSubscribe = this._catService.getRandomCats().subscribe((data: Cat[]) => {
       this.randomCats = data;
     });
@@ -40,8 +41,9 @@ export class VoteComponent implements OnInit, OnDestroy {
     this._catDataService.increaseScore(ident).subscribe(() => {
     });
       this._catService.getCats();
-      this._catService.getScores();
-
+      setTimeout(() => {
+        this._catService.getScores();
+      }, 1600);
   }
 
 }
