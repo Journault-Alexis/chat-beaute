@@ -6,7 +6,6 @@ import { CatService } from '../shared/service/cat.service';
 import { CatDataService } from '../shared/service/catData.service';
 // import {Router} from '@angular/router';
 
-
 @Component({
   selector: 'app-vote',
   templateUrl: './vote.component.html',
@@ -40,10 +39,10 @@ export class VoteComponent implements OnInit, OnDestroy {
   public vote(ident) {
     this._catDataService.increaseScore(ident).subscribe(() => {
     });
-      this._catService.getCats();
-      setTimeout(() => {
-        this._catService.getScores();
-      }, 1600);
+    this._catService.getCats();
+    setTimeout(() => {
+      this._catService.getScores();
+    }, 1200);
   }
 
 }

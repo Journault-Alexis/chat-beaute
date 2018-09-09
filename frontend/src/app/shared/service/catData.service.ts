@@ -6,8 +6,6 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class CatDataService {
-    private cat: Cat;
-    private cats: Array<Cat>;
     private actionUrl: string;
 
     constructor(private http: HttpClient, private _configuration: Configuration) {

@@ -19,7 +19,7 @@ export class ScoreComponent implements OnInit, OnDestroy {
   constructor(private _catService: CatService) {
     this.catsScoresSubscribe = this._catService.getScoresCats().subscribe(cats => {
       this.cats = cats;
-      });
+    });
   }
 
   ngOnInit() {
@@ -33,8 +33,9 @@ export class ScoreComponent implements OnInit, OnDestroy {
     this.cats = null;
   }
   getScore() {
-  this.catsScoresSubscribe = this._catService.getScoresCats().subscribe(cats => {
-    this.cats = cats; });
+    this.catsScoresSubscribe = this._catService.getScoresCats().subscribe(cats => {
+      this.cats = cats;
+    });
   }
 }
 

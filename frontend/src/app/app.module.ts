@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { RouterModule } from '@angular/router';
 
 
 import { AppComponent } from './app.component';
@@ -12,7 +13,9 @@ import { VoteComponent } from './vote/vote.component';
 import { CatService } from './shared/service/cat.service';
 import { CatDataService } from './shared/service/catData.service';
 
+import { AppRoutingModule } from './shared/route/app-routing.module';
 import { Configuration } from '../app.constant';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -20,10 +23,13 @@ import { Configuration } from '../app.constant';
     IntroComponent,
     ScoreComponent,
     VoteComponent,
+    HomeComponent,
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
   ],
   providers: [CatService, CatDataService, HttpClient, Configuration],
   bootstrap: [AppComponent]

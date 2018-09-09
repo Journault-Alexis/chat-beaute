@@ -8,9 +8,6 @@ import { CatDataService } from './catData.service';
 
 @Injectable()
 export class CatService {
-  private cat: Cat;
-  private cats: Array<Cat>;
-  private actionUrl: string;
   protected randomCats: BehaviorSubject<Array<Cat>> = new BehaviorSubject<Array<Cat>>([]);
   switchTimeForCats$ = this.randomCats.asObservable();
   protected scoresCats: BehaviorSubject<Array<Cat>> = new BehaviorSubject<Array<Cat>>([]);
