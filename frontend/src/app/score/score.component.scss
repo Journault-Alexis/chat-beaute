@@ -71,3 +71,27 @@ h2 {
     top: -103px;
     left: 184px;
   }
+
+  //SMARTPHONE---------
+
+@media (orientation: portrait) and (max-device-width :  415px) {
+    #wrapper {
+      width: 90vw !important;
+    }
+  
+  
+  }
+  
+  
+  //SMALL SMARTPHONE---------
+  
+  @media (orientation: portrait) and (max-device-width :  320px) {
+  
+    #wrapper {
+        width: 90vw !important;
+      }
+    
+    
+    }
+    
+  

@@ -43,3 +43,76 @@ cursor: pointer;
     min-width: 100%;
     max-height: 100%;
   }
+
+  
+//IPAD ----------------------
+@media (orientation: landscape) and (max-device-width : 1124px) {
+  #cat {
+    width: 200px !important;
+    min-width: 200px !important;
+  }
+
+  .fill {
+    width: 200px !important;
+    height: 200px !important;
+    
+ 
+}
+}
+//IPAD ----------------------
+@media (orientation: portrait) and (max-device-width : 768px) {
+
+  #cat {
+    width: 200px !important;
+    min-width: 200px !important;
+  }
+
+  .fill {
+    width: 200px !important;
+    height: 200px !important; 
+    
+ 
+}
+
+
+}
+
+//DESKTOP SMALL WINDOW --------------
+@media  (max-width : 1124px) { 
+
+
+  #cat {
+    width: 200px !important;
+    min-width: 200px !important;
+  }
+
+  .fill {
+    width: 200px !important;
+    height: 200px !important;
+    
+ 
+}
+
+
+}
+
+
+//SMARTPHONE---------
+
+@media (orientation: portrait) and (max-device-width :  415px) {
+  #wrapper {
+    width: 90vw !important;
+  }
+  #cat {
+    width: 150px !important;
+    min-width: 150px !important;
+  }
+
+  .fill {
+    width: 150px !important;
+    height: 150px !important;
+    
+ 
+}
+
+}
