@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  server: '178.62.79.71/',
+  server: 'http://178.62.79.71:3000/',
   apiUrl: 'api/cats',
 };
