@@ -10,7 +10,8 @@ import {NgModule} from '@angular/core';
 const appRoutes: Routes = [
   {path: '', component: IntroComponent, pathMatch: 'full'},
   {
-    path: 'lovelycats', component: HomeComponent, data: { page: 'lovelycats' } }
+    path: 'lovelycats', component: HomeComponent, data: { page: 'lovelycats' } },
+    {path: 'lovelycats', redirectTo: 'lovelycats', pathMatch: 'full'},
 ];
 
 @NgModule({
