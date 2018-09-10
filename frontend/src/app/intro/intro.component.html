@@ -1,3 +1,12 @@
-<p>
-  intro works!
-</p>
+<section>
+  <div class="heart">
+    <img id="heart1" [style.display]="shutdownHeart1" src="../../assets/img/heart.svg">
+  </div>
+  <div class="catIntro">
+    <img id="leftCat" [style.left.px]="leftCatArrive" src="../../assets/img/left-cat.svg">
+  </div>
+  <div class="catIntro">
+    <img id="rightCat" [style.right.px]="rightCatArrive" src="../../assets/img/rigth-cat.svg">
+  </div>
+  <h3 [style.font-size.px]="apparitionText">It's time to vote for the most lovely cat!</h3>
+</section>

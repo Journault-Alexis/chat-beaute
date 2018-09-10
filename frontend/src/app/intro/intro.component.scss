@@ -1,0 +1,57 @@
+.heart {
+    width: 200px;
+    text-align: center;
+    padding-bottom: 10px;
+    position: absolute;
+
+
+}
+
+#heart1 {
+    display: none;
+    width: 20px;
+    height: 20px;
+}
+#heart2 {
+    display: none;
+    width: 20px;
+    height: 20px;
+}
+
+
+.catIntro {
+   padding: 10px;
+   width: 80px;
+   height: 80px;
+}
+
+#leftCat {
+    position: relative;
+    left: -600px;
+    transition: 2s;
+}
+
+#rightCat {
+    position: relative;
+    right: -600px;
+    transition: 2s;
+}
+
+section {
+  display: flex;
+  width: 250px;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: absolute; 
+  top: 50vh; 
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+h3 {
+    text-align: center;
+    transition: 0.5s;
+    position: absolute;
+    font-size: 0px;
+    top: 100px;
+}

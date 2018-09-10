@@ -16,6 +16,8 @@ import { CatDataService } from './shared/service/catData.service';
 import { AppRoutingModule } from './shared/route/app-routing.module';
 import { Configuration } from '../app.constant';
 import { HomeComponent } from './home/home.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -23,12 +25,14 @@ import { HomeComponent } from './home/home.component';
     IntroComponent,
     ScoreComponent,
     VoteComponent,
-    HomeComponent,
+    HomeComponent
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
     HttpClientModule,
+    BrowserModule,
+    BrowserAnimationsModule,
     RouterModule
   ],
   providers: [CatService, CatDataService, HttpClient, Configuration],

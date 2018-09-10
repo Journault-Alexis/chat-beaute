@@ -10,7 +10,7 @@ import {NgModule} from '@angular/core';
 const appRoutes: Routes = [
   {path: '', component: IntroComponent, pathMatch: 'full'},
   {
-    path: 'lovelycats', component: HomeComponent}
+    path: 'lovelycats', component: HomeComponent, data: { page: 'lovelycats' } }
 ];
 
 @NgModule({
@@ -25,4 +25,6 @@ const appRoutes: Routes = [
 })
 export class AppRoutingModule {
 }
+
+
 
