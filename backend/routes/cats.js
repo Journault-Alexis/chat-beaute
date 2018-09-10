@@ -39,7 +39,7 @@ router.post('/',
 
 router.put('/',
   async function increaseScore(req, res) {
-    console.log(req.query._id);
+    
     // const { error } = validate(req.body); 
     // if (error) return res.status(400).send(error.details[0].message);
     const cat = await Cat.updateOne({ _id: req.query._id}, {

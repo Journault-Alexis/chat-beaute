@@ -17,6 +17,7 @@ const Cat = mongoose.model('Cat', new mongoose.Schema({
 
 function validateCat(cat) {
   const schema = {
+    _id: Joi.objectId().required(),
     image: Joi.string().min(5).max(100).required(),
     score: Joi.number().min(0)
   };
@@ -26,3 +27,4 @@ function validateCat(cat) {
 
 exports.Cat = Cat; 
 exports.validate = validateCat;
+
