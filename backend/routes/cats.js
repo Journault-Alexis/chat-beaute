@@ -24,10 +24,7 @@ router.get('/random',
 
 router.post('/',
   async function fillTheDB(req, res) {
-
-    const { error } = validate(req.body); 
-    if (error) return res.status(400).send(error.details[0].message);
-
+  
     for (var i = 0; i < req.body.length; i++) {
       let cat = new Cat({
         image: req.body[i].image,
